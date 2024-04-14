@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Calculator</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f8f9f5;
+            background-image: url("Shop/img/banner/banner2.jpg");
+            background-size: cover; /* Cover the entire body */
+  background-repeat: no-repeat;
+            /* Light greenish-gray */
+            padding: 20px;
+        }
+        .section-p1 {
+    padding: 40px 80px;
+}
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 120px;
+            margin-bottom: 60px;
+            background-color: #ffffff;
+            /* White */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            /* Dark green */
+        }
+
+        .input-container {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333333;
+            /* Dark gray */
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            /* Light gray */
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .calc {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            /* Dark green */
+            color: #ffffff;
+            /* White */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .calc:hover {
+            background-color: #45A049;
+            /* Darker green on hover */
+        }
+
+        #result-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            /* Light gray */
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            /* Light gray background */
+        }
+
+        #soil-fertility-info {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            /* Light gray */
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            /* Very light gray background */
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar {
+            height: 65px;
+            padding-top: 0;
+            background: #f8f9fa;
+        }
+
+        .container-fluid {
+            height: 65px;
+            align-items: center;
+            top: 0;
+        }
+
+        /* Adjust offcanvas positioning */
+        .offcanvas-start {
+            left: 0;
+            right: auto;
+        }
+
+        .offcanvas-header {
+            text-align: center;
+        }
+
+        footer {
+            border-top: 2px double black;
+            padding-bottom: 0px;
+            display: flex;
+            flex-wrap: wrap;
+            color: black;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        footer .logo {
+            margin-bottom: 30px;
+        }
+
+        footer h4 {
+            font-size: 14px;
+            padding-bottom: 20px;
+
+        }
+
+        footer p {
+            font-size: 13px;
+            margin: 0 0 8px 0;
+
+        }
+
+        footer a {
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #222;
+            text-decoration: none;
+
+        }
+
+        footer .follow {
+            margin-top: 20px;
+        }
+
+        footer .follow i {
+            color: #465b52;
+            padding-right: 4px;
+            cursor: pointer;
+        }
+
+
+        .copyright {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="img/logo-nav.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <img src="img/logo.png" alt="">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Shop/shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Check Weather</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="guide.html">Guide</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Shop/blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Support</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Crop Calculator</h1>
+        <div class="input-container">
+            <label for="soil-type">Select Soil Type:</label>
+            <select id="soil-type">
+                <option value="Alluvial">Alluvial</option>
+                <option value="Black Soil">Black Soil</option>
+                <option value="Red Soil">Red Soil</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="crop">Select Crop:</label>
+            <select id="crop">
+                <option value="Rice">Rice</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Cotton">Cotton</option>
+                <option value="Sugarcane">Sugarcane</option>
+                <option value="Maize">Maize</option>
+                <option value="Potato">Potato</option>
+                <option value="Tomato">Tomato</option>
+                <option value="Soybean">Soybean</option>
+                <option value="Groundnut">Groundnut</option>
+                <option value="Onion">Onion</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="field-size">Field Size (hectares):</label>
+            <input type="number" id="field-size" min="1" step="1">
+        </div>
+        <div class="input-container">
+            <label for="water-distance">Distance from Water Body (meters):</label>
+            <input type="number" id="water-distance" min="0" step="10">
+        </div>
+        <button class="calc" onclick="calculateRecommendations()">Calculate</button>
+        <div id="result-container"></div>
+    </div>
+    <section id="foot" class="section-p1">
+        <footer class="section-p1">
+            <div class="col">
+                <img src="img/logo.png" alt="" />
+                <h4>Contact</h4>
+                <p><strong>Address: </strong>f-52 , phase-6 , ayanagar , new delhi</p>
+                <p><strong>Phone: </strong>58378475598/3657753577</p>
+                <p><strong>Hours: </strong>10:00 - 18:00</p>
+                <div class="follow">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-pinterest-p"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col about">
+                <h4>About</h4>
+                <a href="#">About Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="col account">
+                <h4>My Account</h4>
+                <a href="#">Sign in</a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Orders</a>
+                <a href="#">Help</a>
+            </div>
+
+        </footer>
+    </section>
+    <div class="copyright">
+        <p>© 2024 , Coding Drgons</p>
+    </div>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        function calculateRecommendations() {
+            const soilType = document.getElementById('soil-type').value;
+            const crop = document.getElementById('crop').value;
+            const fieldSize = parseFloat(document.getElementById('field-size').value);
+            const waterDistance = parseFloat(document.getElementById('water-distance').value);
+
+            // Calculate Soil Fertility Index (SFI)
+            const fertilityFactors = {
+                "Alluvial": 1.2,
+                "Black Soil": 1.0,
+                "Red Soil": 0.8
+                // Add more soil types if needed
+            };
+            const fertilityFactor = fertilityFactors[soilType] || 1.0;
+            const SFI = (fieldSize / waterDistance) * fertilityFactor;
+
+            // Determine Soil Fertility Level
+            let fertilityLevel;
+            if (SFI >= 0.9) {
+                fertilityLevel = "Very High";
+            } else if (SFI >= 0.75) {
+                fertilityLevel = "High";
+            } else if (SFI >= 0.5) {
+                fertilityLevel = "Moderate";
+            } else if (SFI >= 0.25) {
+                fertilityLevel = "Low";
+            } else {
+                fertilityLevel = "Very Low";
+            }
+
+            // Determine fertilizer and pesticide recommendations based on selected crop and soil type
+            let fertilizerRecommendation = "";
+            let pesticideRecommendation = "";
+
+            if (crop === "Rice") {
+                if (soilType === "Alluvial") {
+                    fertilizerRecommendation = "600-800 kg N, 400-500 kg P2O5, 400-600 kg K2O per acre";
+                    pesticideRecommendation = "Carbaryl or Chlorpyrifos for pest control";
+                } else if (soilType === "Black Soil") {
+                    fertilizerRecommendation = "500-700 kg N, 300-400 kg P2O5, 300-500 kg K2O per acre";
+                    pesticideRecommendation = "Carbaryl or Chlorpyrifos for pest control";
+                } else if (soilType === "Red Soil") {
+                    fertilizerRecommendation = "400-600 kg N, 200-300 kg P2O5, 200-400 kg K2O per acre";
+                    pesticideRecommendation = "Carbaryl or Chlorpyrifos for pest control";
+                }
+            } else if (crop === "Wheat") {
+                if (soilType === "Alluvial") {
+                    fertilizerRecommendation = "1200 kg N, 600 kg P2O5, 400 kg K2O per acre";
+                    pesticideRecommendation = "Carbendazim or Propiconazole for fungal diseases";
+                } else if (soilType === "Black Soil") {
+                    fertilizerRecommendation = "1000 kg N, 500 kg P2O5, 300 kg K2O per acre";
+                    pesticideRecommendation = "Carbendazim or Propiconazole for fungal diseases";
+                } else if (soilType === "Red Soil") {
+                    fertilizerRecommendation = "800 kg N, 400 kg P2O5, 200 kg K2O per acre";
+                    pesticideRecommendation = "Carbendazim or Propiconazole for fungal diseases";
+                }
+            }
+            // Add more combinations for other crops and soil types
+
+            // Display calculated values
+            const resultContainer = document.getElementById('result-container');
+            resultContainer.innerHTML = `
+                <h2>Recommendations for ${crop} on ${fieldSize} hectares of ${soilType} soil:</h2>
+                <p><strong>Fertilizer:</strong> ${fertilizerRecommendation}</p>
+                <p><strong>Pesticide:</strong> ${pesticideRecommendation}</p>
+                <div id="soil-fertility-info" class="input-container">
+                    <h3>Soil Fertility Information:</h3>
+                    <p>Soil Fertility Index (SFI): ${SFI.toFixed(2)}</p>
+                    <p>Soil Fertility Level: ${fertilityLevel}</p>
+                </div>
+            `;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
